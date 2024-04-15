@@ -1,11 +1,21 @@
+import java.util.Locale;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
-        int num = 5;
+    Locale.setDefault(Locale.US);
+    Scanner sc = new Scanner(System.in);
 
-        for (int i = 0; i <= 10; i++) {
-            System.out.println(num + "x" + i + " = " + (num * i));
-            //System.out.printf("%dx%d = %d%n", num, i, num * i);
-        }
+    double a, b;
+
+    System.out.println("Digite dois números para fazer a soma:");
+    a = sc.nextDouble();
+    b = sc.nextDouble();
+
+    System.out.print("Soma:  " + String.format("%.2f", a + b));
+
+    sc.close();
+
     }
 }
