@@ -16,6 +16,5 @@ public class Main {
     System.out.print("Soma:  " + String.format("%.2f", a + b));
 
     sc.close();
-
     }
 }
