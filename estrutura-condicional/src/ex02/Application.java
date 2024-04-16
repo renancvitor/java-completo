@@ -20,5 +20,7 @@ public class Application {
         else {
             System.out.println("Ímpar!");
         }
+
+        sc.close();
     }
 }
