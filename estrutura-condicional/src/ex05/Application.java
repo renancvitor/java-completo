@@ -35,7 +35,7 @@ public class Application {
         double total = 0;
 
         total = (double) valor * qtde;
-        System.out.println("O valor total da sua compra foi de R$ " + String.format(".2f", total) + ".");
+        System.out.println("O valor total da sua compra foi de R$ " + String.format("%.2f", total) + ".");
 
         sc.close();
     }
