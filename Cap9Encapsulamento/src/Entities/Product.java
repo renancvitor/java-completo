@@ -7,7 +7,7 @@ public class Product {
     private int quantity;
 
     //Para incluir os controladores de forma automática clique com o botão direito na linha de códigos e
-    //procure por "Generete" e então cliquei em "Constructor"
+    //procure por "Generete" e então clique em "Constructor"
 
     //E para incluir os setters e getters de forma automática clique com o botão direito na linha de códigos e
     //procure por "Generete" e então clique em "Setters" escolhendo quais 'privetes' quer incluir, e da mesma
