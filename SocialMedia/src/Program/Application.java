@@ -18,7 +18,7 @@ public class Application {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy  HH:mm:ss");
 
         Comments c1 = new Comments("Have a nice trip!");
-        Comments c2 = new Comments("Wow that's awespme!");
+        Comments c2 = new Comments("Wow that's awesome!");
         Post p1 = new Post(sdf.parse(
                 "21/06/2018  13:05:44"),
                 "Travel to New Zealand",
