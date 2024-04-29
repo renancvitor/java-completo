@@ -7,18 +7,18 @@ import Entities.Product;
 import EntitiesEnum.OrderStatus;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Appliction {
-    public static void main(String[] args) throws ParseException {
+public class Application {
+    public static void main(String[] args)  {
 
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        //SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
         System.out.println("Enter client data:");
         System.out.print("Name:  ");
@@ -26,7 +26,7 @@ public class Appliction {
         System.out.print("Email:  ");
         String email = sc.next();
         System.out.print("Brith date (DD/MM/YYYY):  ");
-        Date bithDate = sdf.parse(sc.next());
+        LocalDate bithDate = LocalDate.parse(sc.next(), Client.dateTimeFormatter);
 
         Client client = new Client(name, email, bithDate);
 
@@ -37,7 +37,7 @@ public class Appliction {
         System.out.print("How many itens to this order?  ");
         int N = sc.nextInt();
 
-        Order order = new Order(new Date(), status, client);
+        Order order = new Order(LocalDateTime.now(), status, client);
 
         for (int i = 0; i < N; i++) {
             System.out.println("Enter #" + (i+1) + " item data");

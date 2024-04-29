@@ -1,16 +1,21 @@
 package Entities;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.SimpleTimeZone;
 
 public class Client {
 
+    public static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
     private String name;
     private String email;
-    private Date birthDate;
+    private LocalDate birthDate;
 
-    public Client(String name, String email, Date birthDate) {
+    public Client(String name, String email, LocalDate birthDate) {
         this.name = name;
         this.email = email;
         this.birthDate = birthDate;
@@ -24,7 +29,7 @@ public class Client {
         return email;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
@@ -36,14 +41,14 @@ public class Client {
         this.email = email;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
-    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    //private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     @Override
     public String toString() {
-        return "Cliente:  " + name + " (" + sdf.format(birthDate) + ") - " + email;
+        return "Cliente:  " + name + " (" + dateTimeFormatter.format(birthDate) + ") - " + email;
     }
 }

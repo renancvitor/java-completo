@@ -3,26 +3,28 @@ package Entities;
 import EntitiesEnum.OrderStatus;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Order {
 
-    private Date moment;
+    private LocalDateTime moment;
 
     private OrderStatus status;
     private Client client;
 
     private List<OrderItem> items = new ArrayList<OrderItem>();
 
-    public Order(Date moment, OrderStatus status, Client client) {
+    public Order(LocalDateTime moment, OrderStatus status, Client client) {
         this.moment = moment;
         this.status = status;
         this.client = client;
     }
 
-    public Date getMoment() {
+    public LocalDateTime getMoment() {
         return moment;
     }
 
@@ -34,7 +36,7 @@ public class Order {
         return client;
     }
 
-    public void setMoment(Date moment) {
+    public void setMoment(LocalDateTime moment) {
         this.moment = moment;
     }
 
@@ -62,14 +64,15 @@ public class Order {
         items.remove(item);
     }
 
-    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy  HH:mm:ss");
+    //private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy  HH:mm:ss");
+    private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy  HH:mm:ss");
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Order Summary:\n");
         sb.append("Order moment:  ");
-        sb.append(sdf.format(moment) + "\n");
+        sb.append(dateTimeFormatter.format(moment) + "\n");
         sb.append("OrderStatus:  ");
         sb.append(status + "\n");
         sb.append("Client:  ");
