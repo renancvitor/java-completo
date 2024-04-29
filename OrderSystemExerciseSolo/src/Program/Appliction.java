@@ -1,6 +1,10 @@
 package Program;
 
-import Entities.*;
+import Entities.Client;
+import Entities.Order;
+import Entities.OrderItem;
+import Entities.Product;
+import EntitiesEnum.OrderStatus;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,16 +12,13 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Application {
+public class Appliction {
     public static void main(String[] args) throws ParseException {
 
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
+
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-        //Product p = new Product();
-
-        //OrderItem oi1 = new OrderItem(1, 1000.0, p);
 
         System.out.println("Enter client data:");
         System.out.print("Name:  ");
