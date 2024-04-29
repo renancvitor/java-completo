@@ -51,5 +51,16 @@ public class Application {
         Account acc20 = new BusinessAccount(1003, "Bob", 1000.0, 500.0);
         acc20.withdraw(200.0);
         System.out.println(acc20.getBalance());
+
+        // POLYMORPHISM
+
+        Account x = new Account(1020, "Alex", 1000.0);
+        Account y = new SavingsAccount(1023, "Marry", 1000.0, 0.01);
+
+        x.withdraw(50.0);
+        y.withdraw(50.0);
+
+        System.out.println(x.getBalance());
+        System.out.println(y.getBalance());
     }
 }
