@@ -24,6 +24,6 @@ public class Application {
 
         System.out.println("End of program..");
 
-        scanner.close();R
+        scanner.close();
     }
 }
