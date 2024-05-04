@@ -2,6 +2,7 @@ package Application;
 
 import BoardGame.Board;
 import BoardGame.Position;
+import Chess.ChessMatch;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -13,10 +14,9 @@ public class Program {
         Locale.setDefault(Locale.US);
         Scanner scanner = new Scanner(System.in);
 
-        Board board = new Board(8, 8);
+        ChessMatch chessMatch = new ChessMatch();
 
-        Position pos = new Position(3, 5);
-        System.out.println(pos);
+        UI.printBoard(chessMatch.getPieces());
 
         scanner.close();
     }
