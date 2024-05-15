@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import db.DB;
-import db.DbIntegrityException;
+import DB.DB;
+import DB.DbIntegrityException;
 
 public class Program {
 
