@@ -19,8 +19,7 @@ public class DB {
 				Properties properties = loadProperties();
 				String url = properties.getProperty("dburl");
 				connection = DriverManager.getConnection(url, properties);
-			}
-			catch (SQLException e) {
+			} catch (SQLException e) {
 				throw new DbException(e.getMessage());
 			}
 		}
@@ -42,8 +41,7 @@ public class DB {
 			Properties props = new Properties();
 			props.load(fs);
 			return props;
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			throw new DbException(e.getMessage());
 		}
 	}
