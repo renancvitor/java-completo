@@ -3,6 +3,7 @@ package Application;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Scanner;
 
 import DAO.DaoFactory;
 import DAO.SellerDAO;
@@ -14,6 +15,7 @@ public class Program {
 	public static void main(String[] args) {
 
 		Locale.setDefault(Locale.US);
+		Scanner scanner = new Scanner(System.in);
 		SellerDAO sellerDAO = DaoFactory.createSellerDao();
 
 		System.out.println("=== TEST 1: seller findById ===");
@@ -44,5 +46,12 @@ public class Program {
 		sellerDAO.update(seller);
 		System.out.println("Update completed!");
 
+		System.out.println("\n=== TEST 6: seller delete ===");
+		System.out.print("Enter id for delete test:  ");
+		int id = scanner.nextInt();
+		sellerDAO.deleteById(id);
+		System.out.println("Delete completed");
+
+		scanner.close();
 	}
 }
