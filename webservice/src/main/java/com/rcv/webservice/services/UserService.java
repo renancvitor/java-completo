@@ -2,6 +2,7 @@ package com.rcv.webservice.services;
 
 import com.rcv.webservice.entities.User;
 import com.rcv.webservice.repositories.UserRepository;
+import com.rcv.webservice.services.exceptions.ResouceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class UserService {
 
     public User findById(Long id) {
         Optional<User> obj = repository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(() -> new ResouceNotFoundException(id));
     }
 
     public User insert(User obg) {
