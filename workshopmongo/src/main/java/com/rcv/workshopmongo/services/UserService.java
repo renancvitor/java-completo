@@ -2,6 +2,7 @@ package com.rcv.workshopmongo.services;
 
 
 import com.rcv.workshopmongo.domain.User;
+import com.rcv.workshopmongo.dto.UserDTO;
 import com.rcv.workshopmongo.repository.UserRepository;
 import com.rcv.workshopmongo.services.exception.ObjectNotFoundExcetion;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,13 @@ public class UserService {
 //    }
     public User findById(String id) {
         return repo.findById(id).orElseThrow(() -> new ObjectNotFoundExcetion("User not found."));
-}
+    }
+
+    public User insert(User obj) {
+        return repo.insert(obj);
+    }
+
+    public User fromDTO(UserDTO objDto) {
+        return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
+    }
 }
