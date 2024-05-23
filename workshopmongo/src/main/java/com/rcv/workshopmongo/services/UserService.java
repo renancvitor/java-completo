@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -38,6 +39,21 @@ public class UserService {
     public void deleteById(String id) {
         findById(id);
         repo.deleteById(id);
+    }
+
+    public void update(User obj) {
+        Optional<User> optionalUser = repo.findById(obj.getId());
+
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+
+            user.setName(obj.getName());
+            user.setEmail(obj.getEmail());
+
+            repo.save(user);
+        }
+
+        throw new ObjectNotFoundExcetion("User not found.");
     }
 
     public User fromDTO(UserDTO objDto) {
