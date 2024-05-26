@@ -1,5 +1,6 @@
 package com.rcv.workshopmongo.resources;
 
+import com.rcv.workshopmongo.domain.Post;
 import com.rcv.workshopmongo.domain.User;
 import com.rcv.workshopmongo.dto.UserDTO;
 import com.rcv.workshopmongo.services.UserService;
@@ -61,5 +62,11 @@ public class UserResources {
         User user = service.fromDTO(userDTO);
         user.setId(id);
         service.update(user);
+    }
+
+    @RequestMapping(value = "/{id}/posts", method = RequestMethod.GET)
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+        User obj = service.findById(id);
+        return ResponseEntity.ok().body(obj.getPosts());
     }
 }
