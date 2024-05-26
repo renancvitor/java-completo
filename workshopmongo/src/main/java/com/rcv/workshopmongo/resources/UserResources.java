@@ -4,6 +4,7 @@ import com.rcv.workshopmongo.domain.User;
 import com.rcv.workshopmongo.dto.UserDTO;
 import com.rcv.workshopmongo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -46,11 +47,19 @@ public class UserResources {
         return ResponseEntity.noContent().build();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Void> update(@RequestBody UserDTO objDto, @PathVariable String id) {
-        User obj = service.fromDTO(objDto);
-        obj.setId(id);
-        service.update(obj);
-        return ResponseEntity.noContent().build();
+//    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+//    public ResponseEntity<Void> update(@RequestBody UserDTO objDto, @PathVariable String id) {
+//        User obj = service.fromDTO(objDto);
+//        obj.setId(id);
+//        service.update(obj);
+//        return ResponseEntity.noContent().build();
+//    }
+
+    @PutMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void update(@RequestBody UserDTO userDTO, @PathVariable String id) {
+        User user = service.fromDTO(userDTO);
+        user.setId(id);
+        service.update(user);
     }
 }
