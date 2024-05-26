@@ -22,15 +22,16 @@ public class PostResources {
     @Autowired
     private PostService service;
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Post> findById(@PathVariable String id) {
-        Post obj = service.findById(id);
-        return ResponseEntity.ok().body(obj);
-    }
+//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//    public ResponseEntity<Post> findById(@PathVariable String id) {
+//        Post obj = service.findById(id);
+//        return ResponseEntity.ok().body(obj);
+//    }
 
-//    @GetMapping(value = "/{codPost}")
-//    public ResponseEntity<Post> findById(@PathVariable String codPost) {
-//        Post post = postService.findById(codPost);
-//
-//        return ResponseEntity.ok().body(post);
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Post> findById(@PathVariable String id) {
+        Post post = service.findById(id);
+
+        return ResponseEntity.ok().body(post);
+    }
 }
