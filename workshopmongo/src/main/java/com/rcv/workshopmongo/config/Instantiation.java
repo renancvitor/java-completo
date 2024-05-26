@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 @Configuration
@@ -40,5 +41,8 @@ public class Instantiation implements CommandLineRunner {
         Post post2 = new Post(null, LocalDate.parse("22/03/2018", dateTimeFormatter), "Bom dia", "Acordei feliz hoje!", new AuthorDTO(maria));
 
         postRepository.saveAll(Arrays.asList(post1, post2));
+
+        maria.getPosts().addAll(Arrays.asList(post1, post2));
+        userRepository.save(maria);
     }
 }
