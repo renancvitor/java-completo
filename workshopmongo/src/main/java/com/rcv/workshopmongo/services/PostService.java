@@ -10,6 +10,9 @@ import com.rcv.workshopmongo.services.exception.ObjectNotFoundExcetion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,5 +28,12 @@ public class PostService {
 
     public List<Post> findByTittle(String text) {
         return repo.findByTittle(text);
+    }
+
+    public List<Post> fullSearch(String text, LocalDate minDate, LocalDate maxDate) {
+        LocalDateTime midnight = maxDate.atTime(LocalTime.MAX);
+        maxDate = midnight.toLocalDate();
+
+        return repo.fullSearch(text, minDate, maxDate);
     }
 }
